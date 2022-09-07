@@ -1,16 +1,26 @@
 import React from "react";
-import Address from "./Components/Profile/Address";
-import Fullname from "./Components/Profile/FullName";
-import ProfilePhoto from "./Components/Profile/ProfilePhoto";
-import './App.css';
+import Profile from "./Component/profile";
+import PropTypes from "prop-types";
 
 export default function App() {
+  const handleName = (fullName) => alert(fullName);
   return (
     <div>
-      
-      <Fullname />
-      <Address />
-      <ProfilePhoto />
+      <Profile
+        handleName={handleName}
+        fullName="Martins Orubu"
+        bio="I am a tall black Nigerian."
+        profession="I am a fullstack developer." >
+
+        <img src="/Image/photo_2022-05-18_12-34-48.jpg" alt="me"/>
+      </Profile>
     </div>
   );
+}
+
+Profile.PropTypes = {
+  handleName: PropTypes.func,
+  fullName: PropTypes.string,
+  bio: PropTypes.string,
+  profession: PropTypes.string,
 }
